@@ -58,7 +58,7 @@
 - has_many :likes
 - has_many :item_images
 
-## item_images
+## item_imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |image|text|null:false|
