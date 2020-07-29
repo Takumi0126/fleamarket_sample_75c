@@ -14,7 +14,7 @@
 
 ### Association
 - has_many :items
-- has_many :payment
+- has_many :payments
 - has_many :comments
 - has_many :addresses
 
@@ -56,6 +56,15 @@
 - belongs_to :user
 - has_many :comments
 - has_many :likes
+- has_many :item_images
+
+## item_images
+|Column|Type|Options|
+|------|----|-------|
+|image|text|null:false|
+
+### Association
+- belongs_to :item
 
 ## paymentsテーブル
 |Column|Type|Options|
@@ -70,7 +79,6 @@
 
 ### Association
 - belongs_to :user
-- belongs_to :item
 
 ## pointsテーブル
 |Column|Type|Options|
@@ -84,7 +92,6 @@
 ## likesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|like_count|integer||
 |user_id|integer|null:false,foreign_key:true|
 |item_id|integer|null:false,foreign_key:true|
 
@@ -95,7 +102,7 @@
 ## commentsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|text|text||
+|text|text|null:false|
 |user_id|integer|null:false,foreign_key:true|
 |item_id|integer|null:false,foreign_key:true|
 
