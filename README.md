@@ -25,16 +25,17 @@
 |address_given_name|string|null:false|
 |address_family_name_kana|string|null:false|
 |address_given_name_kana|string|null:false|
-|postal_code|integer|null:false|
+|postal_code|string|null:false|
 |prefecture|string|null:false|
 |city|string|null:false|
 |town|string|null:false|
 |building|string||
-|telephone|integer|null:false|
+|telephone|string|null:false|
 |user_id|integer|null:false,foreign_key:true|
 
 ### Association
 - belongs_to :user
+- belongs_to_active_hash :prefecture
 
 ## itemsテーブル
 |Column|Type|Options|
@@ -56,6 +57,11 @@
 - has_many :comments, dependent: :destroy
 - has_many :likes, dependent: :destroy
 - has_many :item_images, dependent: :destroy
+- belongs_to_active_hash :condition
+- belongs_to_active_hash :shipping_burden
+- belongs_to_active_hash :shipping_method
+- belongs_to_active_hash :prefecture
+
 
 ## item_imagesテーブル
 |Column|Type|Options|
