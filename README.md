@@ -39,7 +39,6 @@
 ## itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|image|text|null:false|
 |name|string|null:false|
 |description|text|null:false|
 |category|string|null:false|
