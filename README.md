@@ -10,13 +10,15 @@
 |given_name|string|null:false|
 |family_name_kana|string|null:false|
 |given_name_kana|string|null:false|
-|birthday|integer|null:false|
+|birthday|date|null:false|
 
 ### Association
 - has_many :items, dependent: :destroy
 - has_many :payments, dependent: :destroy
 - has_many :comments, dependent: :destroy
 - has_many :addresses, dependent: :destroy
+- has_many :likes, dependent: :destroy
+- has_many :points, dependent: :destroy
 
 ## addressesテーブル
 |Column|Type|Options|
@@ -31,7 +33,7 @@
 |town|string|null:false|
 |building|string||
 |telephone|string|null:false|
-|user_id|integer|null:false,foreign_key:true|
+|user|references|null:false,foreign_key:true|
 
 ### Association
 - belongs_to :user
@@ -50,7 +52,7 @@
 |shipping_area|string|null:false|
 |shipping_date|integer|null:false|
 |price|integer|null:false|
-|user_id|integer|null:false,foreign_key:true|
+|user|references|null:false,foreign_key:true|
 
 ### Association
 - belongs_to :user
@@ -67,7 +69,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |image|text|null:false|
-|item_id|integer|null:false,foreign_key:true|
+|item|references|null:false,foreign_key:true|
 
 ### Association
 - belongs_to :item
@@ -81,7 +83,7 @@
 |expiration_month|integer|null:false|
 |expiration_year|integer|null:false|
 |serurity_code|integer|null:false|
-|user_id|integer|null:false,foreign_key:true|
+|user|references|null:false,foreign_key:true|
 
 ### Association
 - belongs_to :user
@@ -90,7 +92,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |point|integer||
-|user_id|integer|null:false,foreign_key:true|
+|user|references|null:false,foreign_key:true|
 
 ### Association
 - belongs_to :user
@@ -98,8 +100,8 @@
 ## likesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null:false,foreign_key:true|
-|item_id|integer|null:false,foreign_key:true|
+|user|references|null:false,foreign_key:true|
+|item|references|null:false,foreign_key:true|
 
 ### Association
 - belongs_to :user
@@ -109,8 +111,8 @@
 |Column|Type|Options|
 |------|----|-------|
 |text|text|null:false|
-|user_id|integer|null:false,foreign_key:true|
-|item_id|integer|null:false,foreign_key:true|
+|user|references|null:false,foreign_key:true|
+|item|references|null:false,foreign_key:true|
 
 ### Association
 - belongs_to :user
